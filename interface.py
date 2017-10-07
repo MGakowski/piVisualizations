@@ -5,10 +5,10 @@ import time
 
 window = tkinter.Tk()
 window.title("Pi Trav settings")
-window.geometry("300x300")
-
-
-#  window.wm_iconbitmap('icon.ico')
+window.geometry("300x330")
+window.resizable(width=False, height=False)
+window.configure(background="#11303D")
+window.wm_iconbitmap('pico.ico')
 
 def process():
     turtle.clearscreen()
@@ -49,27 +49,29 @@ def process():
     print("Time to complete, "+str(end - start)+" seconds.")
     turtle.exitonclick()
 
-
-lblSteps = tkinter.Label(window, text="How many digits of pi to step out?")
+photo = tkinter.PhotoImage(file="pibg.gif")
+img = tkinter.Label(window, image=photo)
+img.pack()
+lblSteps = tkinter.Label(window, text="How many digits of pi to step out?", fg="#FFFFFF", bg="#11303D")
 entSteps = tkinter.Entry(window)
-lblDist = tkinter.Label(window, text="Walk distance?")
+lblDist = tkinter.Label(window, text="Walk distance?", fg="#FFFFFF", bg="#11303D")
 entDist = tkinter.Entry(window)
-lblSpeed = tkinter.Label(window, text="Walking speed? (0=fast,1-9=slow)")
+lblSpeed = tkinter.Label(window, text="Walking speed? (0=fast,1-9=slow)", fg="#FFFFFF", bg="#11303D")
 entSpeed = tkinter.Entry(window)
-lblColchange = tkinter.Label(window, text="Number to change colour on? (0-9)")
+lblColchange = tkinter.Label(window, text="Number to change colour on? (0-9)", fg="#FFFFFF", bg="#11303D")
 entColchange = tkinter.Entry(window)
 
-btn = tkinter.Button(window, text="Process", command=process)
+btn = tkinter.Button(window, text="Process", command=process, fg="#11303D", bg="#74D8CC")
 
 lblSteps.pack()
-entSteps.pack()
+entSteps.pack(pady=2)
 lblDist.pack()
-entDist.pack()
+entDist.pack(pady=2)
 lblSpeed.pack()
-entSpeed.pack()
+entSpeed.pack(pady=2)
 lblColchange.pack()
-entColchange.pack()
+entColchange.pack(pady=2)
 
-btn.pack()
+btn.pack(pady=10)
 
 window.mainloop()
